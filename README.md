@@ -6,7 +6,7 @@
 
 Send emails with Mailgun
 
-```
+```coffee
 res = mailgun send
   --to 'no-reply@domain.com'
   --from 'no-reply@domain.com'

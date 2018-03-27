@@ -27,5 +27,3 @@ commands:
 env:
   API_KEY:
   DOMAIN:
-  PUBLIC_API_KEY:
-  URL:
