@@ -1,29 +1,31 @@
 commands:
   send:
     help: Send an email
-    kwargs:
-      - name: to
+    arguments:
+      to:
         type: string
         required: true
-      - name: from
+      from:
         type: string
         required: true
-      - name: bcc
+      bcc:
         type: string
-      - name: cc
+      cc:
         type: string
-      - name: subject
+      subject:
         type: string
         required: true
-      - name: text
+      text:
         type: string
-      - name: html
+      html:
         type: string
-      - name: attachment
-        type: file
-      - name: inline
-        type: file
+      attachment_path:
+        type: string
+      inline_attatchment_path:
+        type: string      
 
-env:
+environment:
   API_KEY:
+    type: string
   DOMAIN:
+    type: string
