@@ -11,7 +11,7 @@ DOMAIN = os.environ['DOMAIN']
 @app.route('/send', methods=['POST'])
 def send():
     data = request.json
-    print(data)
+
     if data.get("to") is None or data.get("to") == "" :
         return end({
             'success': False,
