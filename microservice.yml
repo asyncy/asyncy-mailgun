@@ -1,29 +1,60 @@
 omg: 1
+info:
+  version: 1.0.0
+  title: Mailgun
+  description: Mailgun as a microservice
+  license:
+    name: MIT
+    url: https://opensource.org/licenses/MIT
+  contact:
+    name: Asyncy
+    url: https://asyncy.com
+    email: hello@asyncy.com
+lifecycle:
+  startup:
+    command: ["python","-u","/app/app.py"]
 actions:
   send:
     help: Send an email
     arguments:
       to:
-        type: string
+        type: list
+        in: requestBody
         required: true
       from:
         type: string
+        in: requestBody
         required: true
       bcc:
         type: string
+        in: requestBody
       cc:
         type: string
+        in: requestBody
       subject:
         type: string
+        in: requestBody
         required: true
       text:
         type: string
+        in: requestBody
+        required: true
       html:
         type: string
+        in: requestBody
       attachment_path:
         type: string
+        in: requestBody
       inline_attatchment_path:
-        type: string      
+        type: string   
+        in: requestBody
+    http:
+      path: /send
+      method: post
+      port: 8000 
+      contentType: application/json 
+    output:
+      type: map
 
 environment:
   API_KEY:

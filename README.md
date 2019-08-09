@@ -1,7 +1,8 @@
 # _Mailgun_ OMG Microservice
 
 [![Open Microservice Guide](https://img.shields.io/badge/OMG%20Enabled-👍-green.svg?)](https://microservice.guide)
-
+[![Build Status](https://travis-ci.com/omg-services/mailgun.svg?branch=master)](https://travis-ci.com/omg-services/mailgun)
+[![codecov](https://codecov.io/gh/omg-services/mailgun/branch/master/graph/badge.svg)](https://codecov.io/gh/omg-services/mailgun)
 Send emails with Mailgun
 
 ```coffee
