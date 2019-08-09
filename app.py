@@ -32,7 +32,7 @@ def send():
         auth=("api", API_KEY),
         data=data
     )
-    print(res.json())
+
     if res.status_code != 200:
         return end({
             'success': False,
