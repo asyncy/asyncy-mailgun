@@ -7,9 +7,8 @@ info:
     name: MIT
     url: https://opensource.org/licenses/MIT
   contact:
-    name: Asyncy
-    url: https://asyncy.com
-    email: hello@asyncy.com
+    name: Storyscript
+    url: https://storyscript.io
 lifecycle:
   startup:
     command: ["python","-u","/app/app.py"]
@@ -46,13 +45,13 @@ actions:
         type: string
         in: requestBody
       inline_attatchment_path:
-        type: string   
+        type: string
         in: requestBody
     http:
       path: /send
       method: post
-      port: 8000 
-      contentType: application/json 
+      port: 8000
+      contentType: application/json
     output:
       type: map
 
