@@ -1,27 +1,20 @@
-# Disable sudo to speed up the build
 sudo: false
-
-# Set OS  for build
 dist: xenial
-
-# Set the build language to Python
 language: python
-
-# Set the python version to 2.7
 python: 3.7
-
-# Install the codecov pip dependency
 install:
-  - pip install -r requirements.txt
-  - pip install pytest==5.0.1
-  - pip install pytest-flask==0.15.0
-  - pip install pytest-cov==2.7.1
-  - pip install poetry
-
-# Run the unit test
+- pip install -r requirements.txt
+- pip install pytest==5.0.1
+- pip install pytest-flask==0.15.0
+- pip install pytest-cov==2.7.1
+- pip install poetry
 script:
-  - poetry run pytest --cov=app
-
-# Push the results back to codecov
+- poetry run pytest --cov=app
 after_success:
-  - bash <(curl -s https://codecov.io/bash)
+- bash <(curl -s https://codecov.io/bash)
+env:
+  global:
+  - secure: SpR7XsWm4wjFrNppJaK1nIpJznR0CAWUZ1o+xZT26KwHkLE3HAIbjWDmFd6Z26bfb5CAxuAKXGZQpNf7nbNKWO7aiqXpwWJ8Tyer3vrInFQDWmF6il68ygM7IJn47W964PHmoNcRsGPJ/m6Tmqw3rSFit6lCwl/BgH/fHd/gMHYhwVACh6EJYVfvsUmwy5FPj+B3q1/5eaykkLcyUjCqHO6M4/fwgNI3oM8xijkonl4J35xUXWto7fE87LfUqFRwpIHMYngZBLlIWsY+RyZBB/XLLXqSNEVNz4x88PxsM86poO2GQ3I45eFrItPvdyjnu0pp0s5xlw82/R/AMYI/5yUiIH886FZeVIrOlhJralRPKFFBY11yZf7snVGijo+s5NERblAiM6m1luruF+CZ0ZHVBmoYWJMH2TB63plxrYDn0AwSPN7HswaZNvhQqrAbLgrvm+2WQ7kpy97TruMbUCO+kTz+qI6CiOGcB8LawxKUb7LDJ/9cGZ6t2VVXsSZpECu6DoPMvJoDKLFuGnkqaCD7W6ry7QeAWS4ZgZO8Y5Qrnu4YFbUacUzFktH/jMF5Nz8souHj1EeO2beul+LkywZrXC2oJ+/2nVIAclTEh36IDMc0YgTK7RAQTl9bdP6dKYPeDeBv6TnO4/3l+r9XVUmFW2gn5cv2bgG6nKVWAM4=
+  - secure: 0DqgFC/1zw3yIENDI1rqfnHmKZSbaW2MKaWjEK3TOA9hYHGyZJjnv2Gv5BAzXHJNSl6DO4pQj+fL9P7VbSzespeT9jgtSU4iEarm88hqNCfhVWSnQmGBzSt7zhLS9KgeDB12z9/wYU5n7B1eR5f+bbjz25eCeQ+3VqetEnrFCLYY3sn5jGyNF85J5xhrvuDhYuTCTs0Lh8iF3IeWzayWWyWGxBgOLhUVkAezHhgmXOcW2QB7xiQFCD3rTxVH/P/RIxMaOIHjLm/pudcjMNdZIPcWEe1y3dOwA3xR1xblT1R1DwfWng+1ZHDlKDkxrQHsvZp4SYShvBuRMlHHLqQ0EyWA5FyT6/E/mp98+xEWvAT7YLHzvkkGyujkpIKLs3pwCwKtr5h+zUnW/hyYH48OqtUeSdygNs8yWEHwrGtMUe/IhVXL/xMKWANSoJMtcIQAEhWWuJy4+0I7O1s/rhEx9fQ9UmU2iaXLE3BeORkU6O9kcFfTDGUWg9Wv3nzp94vo/cQT/UvIQDhq+u+uFFSGUqnIJDX5kI3hPSPqS3UhBLOaKvDHfUtUQ4aLmWZX8x6y8TNbesNqbELNfqPufHR8TNAbaZqGRgtShU76WDE+GXMwY8f8L1gMrZe3LqDjXSDuYJjWY8I7hPicC9aP2VHgl0df5NxKHMbmZf/7JOdYDtY=
+  - secure: NB8oj+gryzljCzKy2i7cFxEMOzE+R0jwp386oVlMBgTIBNrFrTDoUMHHljrnPfTlAgXCj5PsvqbWxO4hkhKxgjnHtcvzY0yJADWJGPN/ZNbMHFttc1FPJus+tPRCSkT1GAmjjTh6m3gVvmFybsOFYlNhGZphrN+mhPyPksY/zp+HO0feVdqTcKrkGBheMFdH5mzeR+UiWyFyLqfQ6id4EI62HD/eviXF5/OOE2cjk41pnL2+lObgaxsMSMrKRYy1H2u/84MR4dc6FU1S4ARPTCBkoCsDd42cfHx279LOzX2kA0qevfGUz2eMV4vwJA0UhasMGA9FWOWvJ+Kz8x4cCHq/Y/zpLa4QrLVfA9pCLfqluRtVqFOqLBfknkLj705dIXKPswJqOXmgAK8TzBdYIVG4bvORBVGe1N+u4JN4ZToVTL9BGhcAa/xUkqToBALSW3if92uK61LPKUPh4OhV/dNi/tOgCcUZYmjpOnJu+smNwNnjS0NxFM5UOjSO9DE4LnkWXFzu79/4FreBqQ2Nrd5ZRYN+K4pN0PQGMBXNYe1STvz95VzSub9zt/fQoypztuMshoTs/75xc3xxJKuc/UyOLAGm22Ji8WrK2VFoKfq012FH42XYhLYYg/Y0UdwjdEERL7e37/IFV2dmXUWQgb6xx2AfYXS5JcREQhTkLxI=
+  - secure: IWkVErNtrhZwJOR3pWInT6Y7gC6OavBaGWECJTH/y0rhg5zotrFr46xpyYKpSJot/Q/y1vEOTkz5nasZDVnNseNfhfUh9tK3TdmxAFQGPvmqyx9zEPDXnNJhYhQJtOuW5pg/iHKBTKmuYSmm48WW+6ngvPgp9Nj3j+uMYHKO7P+yobUBgHdoikkm9g/HKOeOO86fzA9TuMwIDeLSLKlQ26m+T8TmesvbpeJ3+9XGH4Kk9ZBRNwUjATlWEjpgQtne3DovtXbYdF2EFO65kZhiBD8nWopU8Etvcndp6LEVBJqhCPX6uMsd3FlZlE06kcZWlOImkXzvIR9yaWHcx4sa29P2Mqmxqv1WqeoSSZdhBLg6Bxybpcos1oCKdeeVX6+JY1ef4SO9OXCjvYmK2YJNnxnRzmyjgqVpGtnS8IEVzLumrn9MY4h/rjKYcmUCASagyRtfrFQFsvbMcc+XtP4Y4l1Q//0z3SrXLiqQ1/cw+Im4R8Vlhc2KTn16DfDCbySAj9yZf2SaTdyrCTbL5tkynX4UAlW9Rf02h3xZqwnOEHlP+nB8+c6lKMJthbW0Dt1dZD562AhyzWBS8U8h2wHMjnlOFpupiwMdJ8kQdvtnWiQcFsGQWijRtb/gx6Pd+HfdPMdK7AQRoUvPCNQg04PJuBvCV6pUaGwD6zSBBPsTvnE=
