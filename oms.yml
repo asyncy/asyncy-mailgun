@@ -1,4 +1,4 @@
-omg: 1
+oms: 1
 info:
   version: 1.0.0
   title: Mailgun
@@ -11,7 +11,7 @@ info:
     url: https://storyscript.io
 lifecycle:
   startup:
-    command: ["python","-u","/app/app.py"]
+    command: ['python', '-u', '/app/app.py']
 actions:
   send:
     help: Send an email
