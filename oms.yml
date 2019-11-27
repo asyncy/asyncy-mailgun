@@ -5,13 +5,17 @@ info:
   description: Mailgun as a microservice
   license:
     name: MIT
-    url: https://opensource.org/licenses/MIT
+    url: 'https://opensource.org/licenses/MIT'
   contact:
-    name: Storyscript
-    url: https://storyscript.io
+    name: Open Microservices
+    url: 'https://openmicroservices.org'
+    email: core@openmicroservices.org
 lifecycle:
   startup:
-    command: ['python', '-u', '/app/app.py']
+    command:
+      - python
+      - '-u'
+      - /app/app.py
 actions:
   send:
     help: Send an email
@@ -54,7 +58,6 @@ actions:
       contentType: application/json
     output:
       type: map
-
 environment:
   API_KEY:
     type: string
